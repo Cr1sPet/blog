@@ -1,0 +1,19 @@
+
+databases:
+  - name: task_manager_db
+    plan: free
+
+services:
+  - type: web
+    name: uchi_blog
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: task_manager_db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+    plan: free
