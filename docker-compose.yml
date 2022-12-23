@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+  db:
+    image: postgres
+    volumes:
+      - uchi-blog-pg-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  yarn: &rails
+    build: .
+    volumes:
+      - .:/app
+      - ./tmp/bundle:/bundle
+    command: bin/docker.dev
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USERNAME: dev
+      DATABASE_PASSWORD: password
+      TIME_ZONE: Moscow
+      BUNDLE_PATH:  /bundle
+    depends_on:
+      - db
+    stdin_open: true
+
+  web:
+    <<: *rails
+    command: bash -c "rm -f tmp/pids/server.pid && rails server -b '0.0.0.0' -p 3000"
+    ports:
+      - "3000:3000"
+    # tty: true # enable for debugging with binding.pry and attach to the container using docker ps
+volumes:
+  uchi-blog-pg-data:
