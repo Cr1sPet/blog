@@ -1,6 +1,8 @@
 RailsAdmin.config do |config|
   config.asset_source = :sprockets
 
+  config.parent_controller = "::ApplicationController"
+  
   ### Popular gems integration
 
   ## == Devise ==
