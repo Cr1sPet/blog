@@ -77,3 +77,6 @@ end
 gem 'pundit', '~> 2.3'
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
+
+gem 'rails_admin', '~> 3.1', '>= 3.1.1'
+gem "sassc-rails"
