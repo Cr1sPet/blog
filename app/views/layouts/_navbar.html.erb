@@ -9,13 +9,9 @@
         <li class="nav-item">
           <%= link_to 'Home', root_path, class: "nav-link" %>
         </li>
-        <%
-=begin%>
- <li class="nav-item">
-          <%= link_to t('links.routes.info'), info_path, class: "nav-link" %>
+        <li class="nav-item">
+          <%= link_to 'Articles', articles_path, class: "nav-link" %>
         </li>
-<%
-=end%>
       </ul>
       <ul class="navbar-nav">
         <% if user_signed_in? %>
