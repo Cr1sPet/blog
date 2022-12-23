@@ -1,24 +1,12 @@
-# README
+Последнее задание тестового задания для Uchi ru - Онлайн блог.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Проект задеплоен на сервисе Render: https://uchi-blog.onrender.com/
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Как запустить проект локально:
+```
+git clone git@github.com:Cr1sPet/uchi-blog.git
+cd uchi-blog
+make app-init
+make app
+```
+Сайт будет доступен по  адресу: localhost:3000
