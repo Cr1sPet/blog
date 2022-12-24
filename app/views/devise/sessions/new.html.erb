@@ -1,0 +1,30 @@
+<!-- app/views/devise/sessions/new.html.erb -->
+
+<div class="row justify-content-center">
+  <h2 class="text-center">Login</h2>
+  <div class="col-md-4">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal") do |f| %>
+      <div class="form-group">
+        <%= f.label :email, class: "control-label m-1" %><br />
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, class: "control-label m-1" %><br />
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-group">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, t('fields.remember_me'), class: "control-label m-1" %>
+        </div>
+      <% end -%>
+
+      <div class="form-group text-center">
+        <%= f.submit "Log in", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
