@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   scope module: :web do
     resources :articles
+    resources :users, only: [:show]
   end
 
   # Defines the root path route ("/")

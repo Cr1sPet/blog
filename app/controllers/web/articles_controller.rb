@@ -7,6 +7,8 @@ class Web::ArticlesController < Web::ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @article.views += 1
+    @article.save
   end
 
   def new

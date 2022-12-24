@@ -1,4 +1,7 @@
 <% if user_signed_in? %>
+    <li class="nav-item">
+        <%= link_to 'My page',  current_user, class: "nav-link" %>
+    </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Actions

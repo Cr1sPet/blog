@@ -1,0 +1,20 @@
+<div class="card">
+    <h5 class="card-header card-text">
+        <%= article.title %>
+    </h5>
+    <div class="card-body">
+        <p class="card-text"><%= "#{article.body.split(".").take(3).join}..." %></p>
+        <ul class="list-group list-group-flush">
+            <li class="card-text list-group-item">Author: <%= link_to article.author.name , article.author%></li>
+            <li class="card-text list-group-item"><%= article.views%>  views</li>
+            <li class="card-text list-group-item"> Created at: <%= article.created_at.to_time%></li>
+            <li class="list-group-item">
+        <%= link_to "Full article", article, class: "btn btn-primary"%>
+        <% if article.author == current_user %>
+        <%= link_to "Edit", edit_article_path(article), class: "btn btn-primary" %>
+        <%= link_to "Delete", article, data: {turbo_method: :delete}, class: "btn btn-primary"%>
+        <% end %>
+        </li>
+        </ul>
+    </div>
+</div>
