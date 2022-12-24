@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
   has_many :articles, class_name: 'Article', foreign_key: :author_id
 
-  enum role: %i[admin author user]
+  enum role: %i[admin author]
 
   def is_admin?
     self.admin?
@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
 
   after_initialize do
-    self.role ||= :user if new_record?
+    self.role ||= :author if new_record?
   end
 
   # Include default devise modules. Others available are:

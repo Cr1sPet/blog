@@ -19,13 +19,12 @@ Urna id volutpat lacus laoreet non curabitur. Nisl tincidunt eget nullam non nis
 ]
 
 User.create(email: "adm@adm.in", name: 'admin', role: 'admin', password: 'admin1', password_confirmation: 'admin1')
-User.create(email: "us@us.er", name: 'nick', role: 'user', password: '1qa2ws', password_confirmation: '1qa2ws')
 
 bob = User.create(email: "au1@auth.or", name: 'Bob', role: 'author', password: '1qa2ws', password_confirmation: '1qa2ws')
 martin = User.create(email: "au2@auth.or", name: 'Martin', role: 'author', password: '1qa2ws', password_confirmation: '1qa2ws')
 alice = User.create(email: "au3@auth.or", name: 'Alice', role: 'author', password: '1qa2ws', password_confirmation: '1qa2ws')
 
 
-Article.create(title: "bob's first article", body: LOREM_IPSUM[0], author: User.where(email: 'Bob'))
-Article.create(title: "martin's first article", body: LOREM_IPSUM[1], author: User.where(email: 'Martin'))
-Article.create(title: "alice's first article", body: LOREM_IPSUM[2], author: User.where(email: 'Alice'))
+Article.create(title: "bob's first article", body: LOREM_IPSUM[0], author: bob)
+Article.create(title: "martin's first article", body: LOREM_IPSUM[1], author: martin)
+Article.create(title: "alice's first article", body: LOREM_IPSUM[2], author: alice)
