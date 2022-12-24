@@ -1,8 +1,10 @@
 <h1><%= @article.title%></h1>
 <p><%= @article.body %></p>
 <p> Author: <%= @article.author.name%></p>
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Delete", @article, data: {turbo_method: :delete}  %></li>
-</ul>
+<% if @article.author == current_user %>
+  <ul>
+    <li><%= link_to "Edit", edit_article_path(@article) %></li>
+    <li><%= link_to "Delete", @article, data: {turbo_method: :delete}  %></li>
+  </ul>
+<% end %>
 

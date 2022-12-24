@@ -27,10 +27,12 @@ class Web::ArticlesController < Web::ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    authorize @article
   end
 
   def update
     @article = Article.find(params[:id])
+    authorize @article
 
     if @article.update(article_params)
       flash[:notice] = "Article successfully updated"
@@ -43,6 +45,7 @@ class Web::ArticlesController < Web::ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
+    authorize @article
     if @article.destroy
       flash[:notice] = "Article successfully deleted"
       redirect_to articles_path

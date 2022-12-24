@@ -14,10 +14,10 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def update?
-    @user.is_admin? || @user.author?
+    @user.is_admin? || (@user.author? && record.author == user)
   end
 
   def destroy?
-    @user.is_admin? || @user.author?
+    @user.is_admin? || (@user.author? && record.author == user)
   end
 end

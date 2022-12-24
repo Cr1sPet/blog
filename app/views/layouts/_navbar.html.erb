@@ -20,6 +20,12 @@
                     <%= link_to 'Admin panel',  rails_admin.dashboard_path, class: "nav-link" %>
                 </li>
             <% end%>
+            <li class="nav-item">
+              <%= current_user.name %>
+            </li>
+            <li class="nav-item">
+              <%= current_user.role %>
+            </li>
             <% if current_user.author? %>
                 <li class="nav-item">
                     <%= link_to 'New Article',  new_article_path, class: "nav-link" %>
