@@ -2,6 +2,6 @@
 <% @articles.each do |article| %>
     <h1><%= article.title%></h1>
     <p><%= "#{article.body.split(".").first}..." %></p>
-    <%= link_to "Full article", article_path(article.id) %>
+    <%= link_to "Full article", article %>
     <p> Author: <%= article.author.name%></p>
 <% end %>
