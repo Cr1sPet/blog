@@ -1,7 +1,23 @@
 
-
-<h2> <%= @user.name%> </h2>
-
-<p> total views: <%= @total_views %></p>
-
-<p> posts </p>
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+  <div class="card p-4">
+    <div class="image d-flex flex-column justify-content-center align-items-center">
+        <button class="btn btn-secondary">
+            <%= image_tag("avatar.png", height: 150, width: 150)%>
+        </button>
+        <span class="name mt-3"><%= @user.name %></span>
+        <div class="d-flex flex-row justify-content-center align-items-centermt-3">
+        <ul class="list-group list-group-flush text-center">
+            <li class="card-text list-group-item"><%= link_to "#{@total_atricles} articles", articles_path(:name => @user.name) %></li>
+            <li class="card-text list-group-item"><%= @total_views %><span class="follow"> total views</span></li>
+            <li class="list-group-item">
+        </ul>
+    </div>
+    <div class="px-2 rounded mt-4 date">
+        <span class="join">
+            Joined <%= @user.created_at.to_date %>
+        </span>
+    </div>
+    </div>
+  </div>
+</div>

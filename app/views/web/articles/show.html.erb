@@ -1,19 +1,3 @@
-<div class="card">
-  <h5 class="card-header card-text">
-      <%= @article.title %>
-  </h5>
-  <div class="card-body">
-      <p class="card-text"><%= "#{@article.body.split(".").take(3).join}..." %></p>
-      <p class="card-text">Author: <%= link_to @article.author.name , @article.author%></p>
-      <p class="card-text"><%= @article.views%>  views</p>
-      <p class="card-text"> Created at: <%= @article.created_at.to_time%></p>
-      <%= link_to "Full @article", @article, class: "btn btn-primary"%>
-      <% if @article.author == current_user %>
-        <ul>
-          <li><%= link_to "Edit", edit_@article_path(@@article), class: "btn btn-primary" %></li>
-          <li><%= link_to "Delete", @@article, data: {turbo_method: :delete}, class: "btn btn-primary"  %></li>
-        </ul>
-      <% end %>
-  </div>
-</div>
+<%= render 'web/articles/article', article: @article, current_user: current_user %>
+
 

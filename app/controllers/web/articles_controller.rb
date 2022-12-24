@@ -2,7 +2,11 @@ class Web::ArticlesController < Web::ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @articles = Article.all
+    if params[:name].present?
+      @articles = Article.joins(:author).where(author: {name: params[:name]})
+    else
+      @articles = Article.all
+    end
   end
 
   def show
