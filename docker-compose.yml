@@ -21,8 +21,7 @@ services:
       DATABASE_URL: postgres://dev:password@db
       TIME_ZONE: Moscow
       BUNDLE_PATH:  /bundle
-      RAILS_ENV: production
-      DISABLE_DATABASE_ENVIRONMENT_CHECK: 1
+      RAILS_ENV: development
       DATABASE_PORT: 5432
     depends_on:
       - db
