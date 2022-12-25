@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
 
@@ -6,8 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def pundishing_user
-    flash[:alert] = "You are not authorized to perform this action."
+    flash[:alert] = 'You are not authorized to perform this action.'
     redirect_to main_app.root_path
   end
-
 end

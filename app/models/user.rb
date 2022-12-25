@@ -1,5 +1,6 @@
-class User < ApplicationRecord
+# frozen_string_literal: true
 
+class User < ApplicationRecord
   has_many :articles, class_name: 'Article', foreign_key: :author_id
 
   has_many :comments, class_name: 'Comment', foreign_key: :author_id
@@ -7,9 +8,8 @@ class User < ApplicationRecord
   enum role: %i[admin author]
 
   def is_admin?
-    self.admin?
+    admin?
   end
-
 
   after_initialize do
     self.role ||= :author if new_record?
@@ -18,5 +18,5 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-        :rememberable, :validatable
+         :rememberable, :validatable
 end

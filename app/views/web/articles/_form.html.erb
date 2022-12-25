@@ -1,3 +1,4 @@
+
 <div class="row justify-content-center">
 <div class="col-md-4">
 <%= form_with model: article do |form| %>
@@ -10,7 +11,7 @@
   </div>
   <div class="mb-3">
     <%= form.label :body, class: "form-label" %>
-    <%= form.text_area :body, class: "form-control"m  %>
+    <%= form.text_area :body, class: "form-control"  %>
     <% @article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>

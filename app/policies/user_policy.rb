@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserPolicy < ApplicationPolicy
   attr_reader :user
 
@@ -24,5 +26,4 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     @user.is_admin?
   end
-
 end

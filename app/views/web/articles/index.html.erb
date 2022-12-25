@@ -1,4 +1,23 @@
 
+<% if user_signed_in? %>
+<div class="container d-flex align-items-end flex-column">
+<h2>Find articles by author</h2>
+  <form action="/articles" method="GET" class="row row-cols-lg-auto g-3 mb-3">
+    <div class="col">
+      <input type="text" name="search_name" class="form-control" value=<%= @search_name ? @search_name : "" %> >
+    </div>
+    <div class="col">
+      <input type="submit" value="Search for Article" class="btn btn-primary">
+    </div>
+  </form>
+</div>
+<% end %>
 <% @articles.each do |article| %>
     <%= render 'web/articles/article', article: article, current_user: current_user, body: "#{article.body.split(".").take(3).join}...", preview: true %>
 <% end %>
+
+<div class="container pagination justify-content-center" >
+  <%= paginate @articles %>
+</div>
+
+
