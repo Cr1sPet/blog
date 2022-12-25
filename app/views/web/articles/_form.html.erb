@@ -1,19 +1,23 @@
+<div class="row justify-content-center">
+<div class="col-md-4">
 <%= form_with model: article do |form| %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title , class: "form-control"%>
     <% @article.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-  <div>
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+  <div class="mb-3">
+    <%= form.label :body, class: "form-label" %>
+    <%= form.text_area :body, class: "form-control"m  %>
     <% @article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-  <div>
-    <%= form.submit %>
+  <div class="form-group text-center ">
+    <%= form.submit "Submit", class: "btn btn-primary"%>
   </div>
 <% end %>
+</div>
+</div>

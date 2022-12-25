@@ -1,4 +1,4 @@
 
 <% @articles.each do |article| %>
-    <%= render 'web/articles/article', article: article, current_user: current_user %>
+    <%= render 'web/articles/article', article: article, current_user: current_user, body: "#{article.body.split(".").take(3).join}...", preview: true %>
 <% end %>
