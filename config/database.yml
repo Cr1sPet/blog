@@ -1,8 +1,8 @@
 default: &default
   adapter: postgresql
-  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
-  username: <%= ENV['DATABASE_USERNAME'] || nil %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  # host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
+  # username: <%= ENV['DATABASE_USERNAME'] || nil %>
+  # password: <%= ENV['DATABASE_PASSWORD'] %>
   encoding: unicode
 
 development:
@@ -16,4 +16,5 @@ test:
 
 production:
   <<: *default
+  database: app_production
   url: <%= ENV['DATABASE_URL'] %>

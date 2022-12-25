@@ -5,13 +5,9 @@ module Web
     before_action :authenticate_user!, except: %i[index show]
 
     def index
-      puts 'SLOBDA'
       if user_session
-        puts 'SLOBDA1'
         user_session[:search_name] = params[:search_name]
       end
-
-      puts params
 
       if user_session && user_session[:search_name]
         @articles = Article.joins(:author)
@@ -19,10 +15,8 @@ module Web
                            .order(:created_at)
                            .page params[:page]
         @search_name = user_session[:search_name]
-        puts 'SLOBDA2'
       else
         @articles = Article.order(:created_at).page params[:page]
-        puts 'SLOBDA3'
       end
     end
 
