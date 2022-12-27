@@ -1,0 +1,5 @@
+
+<% articles.each do |article| %>
+    <%= render 'web/articles/article', article: article, current_user: current_user,
+            body: !preview.nil? ? preview_body(article.body) : article.body, preview: preview %>
+<% end %>

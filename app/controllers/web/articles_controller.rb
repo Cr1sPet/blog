@@ -3,27 +3,16 @@
 module Web
   class ArticlesController < Web::ApplicationController
     before_action :authenticate_user!, except: %i[index show]
-
     def index
-      if user_session
-        user_session[:search_name] = params[:search_name]
-      end
-
-      if user_session && user_session[:search_name]
-        @articles = Article.joins(:author)
-                           .where('name LIKE ?', "%#{user_session[:search_name].titleize}%")
-                           .order(:created_at)
-                           .page params[:page]
-        @search_name = user_session[:search_name]
-      else
-        @articles = Article.order(:created_at).page params[:page]
-      end
+      @articles = Article
+                  .includes(:author)
+                  .order(:created_at)
+                  .page params[:page]
     end
 
     def show
       @article = Article.find(params[:id])
-      @article.views += 1
-      @article.save
+      @article.update(views: @article.views + 1)
     end
 
     def new

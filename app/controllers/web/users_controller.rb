@@ -7,5 +7,12 @@ module Web
       @total_views = @user.articles.sum(:views)
       @total_atricles = @user.articles.count
     end
+
+    def articles
+      @articles = Article
+                         .includes(:author)
+                         .where(author: { id: params[:id] })
+                         .page params[:page]
+    end
   end
 end

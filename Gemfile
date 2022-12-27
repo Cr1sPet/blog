@@ -84,4 +84,5 @@ gem 'kaminari'
 gem 'rails_admin', '~> 3.1', '>= 3.1.1'
 gem 'sassc-rails'
 
+gem 'bullet', group: 'development'
 gem 'rubocop'

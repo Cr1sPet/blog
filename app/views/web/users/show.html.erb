@@ -12,7 +12,7 @@
                 <li class="card-text list-group-item"><%= link_to "Edit profile", edit_user_registration_path(@user) %></li>
             <% end %>
             <% if user_signed_in? %>
-                <li class="card-text list-group-item"><%= link_to "#{@total_atricles} articles", articles_path(:search_name => @user.name) %></li>
+                <li class="card-text list-group-item"><%= link_to "#{@total_atricles} articles", articles_user_path(@user) %></li>
             <% end %>
             <li class="card-text list-group-item"><%= @total_views %><span class="follow"> total views</span></li>
             <li class="list-group-item">

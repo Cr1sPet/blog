@@ -10,7 +10,13 @@ Rails.application.routes.draw do
     resources :articles do
       get '/page/:page', action: :index, on: :collection
     end
-    resources :users, only: [:show]
+    resources :users, only: [:show] do
+      member do
+        get :articles do
+          get '/page/:page', on: :collection
+        end
+      end
+    end
   end
 
   # Defines the root path route ("/")
